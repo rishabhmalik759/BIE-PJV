@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefWidth="584.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
+   <children>
+      <Pane prefHeight="447.0" prefWidth="584.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b1b1b" height="452.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="593.0" />
+            <ListView fx:id="list_view" layoutX="24.0" layoutY="156.0" prefHeight="200.0" prefWidth="497.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="99.0" layoutX="22.0" layoutY="53.0" stroke="TRANSPARENT" strokeType="INSIDE" width="446.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.9537037014961243" blue="0.9537037014961243" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6973684430122375" green="0.597283124923706" blue="0.597283124923706" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Circle layoutX="490.0" layoutY="103.0" radius="69.0" stroke="TRANSPARENT" strokeType="INSIDE" style="background: radial-gradient(circle, rgba(92,88,164,1) 10%, rgba(132,132,172,1) 43%, rgba(17,166,196,1) 100%);" styleClass="fx-background">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.10575048625469208" green="0.472603976726532" blue="0.8157894611358643" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5659927725791931" green="0.5199999809265137" blue="0.6499999761581421" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <effect>
+                  <Bloom threshold="0.87" />
+               </effect>
+            </Circle>
+            <Button fx:id="play" layoutX="450.0" layoutY="89.0" mnemonicParsing="false" onAction="#play" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="Play" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="stop" layoutX="245.0" layoutY="117.0" mnemonicParsing="false" onAction="#stop" style="-fx-background-color: #2e2e2e;" text="Stop" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <DropShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="open" layoutX="163.0" layoutY="117.0" mnemonicParsing="false" onAction="#open" style="-fx-background-color: #2e2e2e;" text="Open" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label layoutX="156.0" layoutY="61.0" text="Current song playing is  ....">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Accordion layoutX="63.0" layoutY="159.0" />
+            <Accordion layoutX="24.0" layoutY="179.0" prefHeight="77.0" prefWidth="527.0" />
+            <Button fx:id="exit" layoutX="24.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #c6c6c6;" text="Exit" textFill="#0d0d0d">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label fx:id="appName" layoutX="176.0" layoutY="11.0" prefHeight="27.0" prefWidth="190.0" text="Rocker!!" textFill="#ebe8e8" />
+            <Label fx:id="song_name" layoutX="186.0" layoutY="78.0" prefHeight="27.0" prefWidth="93.0" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
