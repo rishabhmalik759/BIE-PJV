@@ -1,6 +1,8 @@
 # BIE-PJV Project 
 
-FIT CVUT 2019-2020 Semester Project  
+FIT CVUT 2019-2020 Semester Project
+
+Author: Rishabh Malik
   
 ## Mp3 Player using JavaFx   Rocker!!
   
@@ -21,3 +23,4 @@ FIT CVUT 2019-2020 Semester Project
 
 ```void storePlaylist()``` - Creates a new File if file doesn't exists, and writes the playlist to it. If file exists it appends to it.  
 
+- To run the project, you need to import the external library, and then run the project with JDK 1.8.
