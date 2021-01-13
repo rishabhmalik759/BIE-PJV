@@ -2,7 +2,7 @@
 
 FIT CVUT 2019-2020 Semester Project  
   
-## Mp3 Player using JavaFx   
+## Mp3 Player using JavaFx   Rocker!!
   
 
  - An Mp3 player designed using JavaFx, with local persistence for keeping the record of last seven songs played.
