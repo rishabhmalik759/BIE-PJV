@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 public class FXMLDocumentController implements Initializable {
     private final String FILE = "src/playlist.txt";
     Mp3  song;
-    int play_on=-1;
+    int play_on=1;
     int number_list=0;
     private Stage stage;
 
@@ -57,13 +57,9 @@ public class FXMLDocumentController implements Initializable {
     ObservableList<String> list = FXCollections.observableArrayList();
 
     @FXML
-    void exit(ActionEvent event) throws FileNotFoundException, IOException {
+    void exit(ActionEvent event) {
 
-        File file = new File (FILE);
-        try (PrintWriter printWriter = new PrintWriter (file)) {
-            list.stream().forEachOrdered(item -> printWriter.println(item));
-        }
-
+        storePlaylist();
         System.exit(0x0);
     }
 
@@ -90,23 +86,22 @@ public class FXMLDocumentController implements Initializable {
         if(song!=null&& play_on==0 ){
 
             song.play();
-            play_on=-1;
+            play_on=1;
             stop.setDisable(false);
             open.setDisable(true);
-            String name_file;
-            name_file = song.filename;
-            if (!list.contains(name_file) || number_list >= 6) {
+            if (!list.contains(song.filename) || number_list >= 6) {
                 number_list++;
                 if (number_list > 6) {
-                    list.set(number_list % 7, name_file);
-                    list_copy.set(number_list % 7, name_file);
+                    list.set(number_list % 7, song.filename);
+                    list_copy.set(number_list % 7, song.filename);
                 } else {
-                    list.add(name_file);
-                    list_copy.add(name_file);
+                    list.add(song.filename);
+                    list_copy.add(song.filename);
                 }
             }
             list_view.setItems(list);
-            song_name.setText(name_file);
+            song_name.setText(song.filename);
+            storePlaylist();
         }
 
     }
@@ -120,10 +115,12 @@ public class FXMLDocumentController implements Initializable {
             song.close();
             song_name.setText("Press Open or Play to continue enjoying!");
         }
+
     }
 
     @FXML
     void handleButtonAction(ActionEvent event) {
+        storePlaylist();
         System.exit(0x0);
 
     }
@@ -137,7 +134,20 @@ public class FXMLDocumentController implements Initializable {
         play.setDisable(true);
         stop.setDisable(true);
         song=null;
+        setPlaylist();
 
+    }
+
+    void storePlaylist() {
+        File file = new File (FILE);
+        try (PrintWriter printWriter = new PrintWriter (file)) {
+            list.stream().forEachOrdered(item -> printWriter.println(item));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, "Cannot create file!", ex);
+        }
+    }
+
+    void setPlaylist(){
         try {
 
             File file = new File(FILE);
@@ -155,10 +165,6 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-
-
     }
 
 }
